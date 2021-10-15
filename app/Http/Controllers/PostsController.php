@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePostRequest;
 
 class PostsController extends Controller
 {
@@ -38,7 +39,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
         //
         // return $request->all();
@@ -50,6 +51,14 @@ class PostsController extends Controller
 
     //   $input = $request->all();
     // $input['title'] = $request->title;
+
+    // $this->validate($request,[
+    // 'title' => 'required',
+    // 'content' => 'required',
+    // 'user_id'=>'required'
+
+
+    // ]);
 
      $post = new Post;
       $post->title = $request->title;
