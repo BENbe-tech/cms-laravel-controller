@@ -60,6 +60,23 @@ public function posts(){
 
 }
 
+ public function getNameAttribute($value){
+
+    return ucfirst($value);
+
+ }
+
+ public function setNameAttribute($value){
+
+   $this->attributes['name'] = strtoupper($value);
+   
+
+ }
+
+
+
+
+
     /**
      * The attributes that should be cast.
      *

@@ -10,6 +10,7 @@ Use App\Models\Tag;
 Use App\Models\Video;
 Use App\Models\Taggable;
 Use App\Http\Controllers\PostsController;
+Use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -357,4 +358,44 @@ Route::group(['middleware'=>'web'], function(){
 
 
 });
+
+Route::get('/dates', function(){
+
+   $date = new DateTime('+1 week');
+
+   echo $date->format('m-d-y');
+
+    echo '<br>';
+
+    echo Carbon::now()->addDays(10)->diffForHumans();
+
+    echo '<br>';
+
+
+    echo Carbon::now()->subMonths(5) -> diffForHumans();
+    echo '<br>';
+
+    echo Carbon::now()->yesterday()->diffForHumans();
+    echo '<br>';
+
+});
+
+Route::get('/getname',function(){
+
+$user = User::find(1);
+
+echo $user->name;
+
+});
+
+Route::get('/setname',function(){
+
+    $user = User::find(1);
+
+    $user->name = "william";
+
+    $user->save();
+
+    });
+
 
